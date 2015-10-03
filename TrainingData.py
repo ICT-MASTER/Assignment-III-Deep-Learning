@@ -55,10 +55,12 @@ def downloadTrainingData():
 	print("Done!")
 
 
+def cleanup():
+	os.remove('7za.exe')
 	
 	
 	
-	
-	
+# Execute procedures
 download7Zip()
 downloadTrainingData()
+cleanup()
