@@ -2,6 +2,8 @@ import urllib.request
 import zipfile
 import os
 from subprocess import call
+import Utils
+
 
 urls = {
 	'7zip': 'http://www.7-zip.org/a/7za920.zip',
@@ -15,7 +17,7 @@ def download7Zip():
 	
 	# Download 7zip
 	print("Download 7zip archive...")
-	urllib.request.urlretrieve(urls['7zip'], filename)
+	urllib.request.urlretrieve(urls['7zip'], filename, Utils.reporthook)
 	
 	# Open as file
 	fh = open(filename, 'rb')
@@ -40,7 +42,7 @@ def downloadTrainingData():
 		
 	print("Downloading training data...")
 	# Download trainingdata
-	urllib.request.urlretrieve(urls['trainingData'], filename)
+	urllib.request.urlretrieve(urls['trainingData'], filename, Utils.reporthook)
 		
 	
 	call(['7za.exe', 'x', 'trainingData.tar.Z', '-y'], stdout=open(os.devnull, 'wb'))
