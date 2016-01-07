@@ -61,8 +61,13 @@ class Network(object):
             for mini_batch in mini_batches:
                 self.update_mini_batch(mini_batch, eta)
             if test_data:
-                print "Epoch {0}: {1} / {2}".format(
-                    j, self.evaluate(test_data) + 40, n_test)
+
+                curr = self.evaluate(test_data)
+                tests = n_test + 0.0
+                percent = (curr / tests) * 100.0
+
+
+                print "Epoch {0}: {1} / {2} | {3}%".format(j, curr, tests, int(percent))
             else:
                 print "Epoch {0} complete".format(j)
 

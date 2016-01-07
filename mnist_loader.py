@@ -15,11 +15,8 @@ import gzip
 # Third-party libraries
 import numpy as np
 
-#image_size = 64*60
-image_size = 32*30
 
-
-def load_data_wrapper(tr_d, va_d, te_d):
+def load_data_wrapper(tr_d, va_d, te_d, image_size):
 	"""Return a tuple containing ``(training_data, validation_data,
 	test_data)``. Based on ``load_data``, but the format is more
 	convenient for use in our implementation of neural networks.
